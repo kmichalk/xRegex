@@ -1,0 +1,53 @@
+#cppincl "static_prop.h"
+#incl "typedef.asmgen"
+#opt dec
+
+#def ID 2
+#def X_VECTOR 24
+#def TRANS_ARRAY MAX_CHAR_TRANSITIONS * ID + SIZE_T
+#def SYMBOLS_ARRAY MAX_TRANSITIONS * CHAR + SIZE_T
+#def 
+
+#layout x_Section {
+	PTR		parent
+	PTR		next
+	PTR 	sub
+	PTR		begin
+	PTR		end
+	ID		id
+	BOOL	looped
+	BOOL	optional
+}
+
+#layout x_SectionStack {
+	PTR		_root
+	PTR		_top
+	PTR		_stored
+	ID		_lastId
+}
+
+#layout x_DFA_Node {
+	PTR[CHAR_RANGE]		transitions
+	ID					id
+	BOOL				accepting
+}
+
+#layout x_DFA {
+	X_VECTOR	_nodes
+}
+
+#layout x_NFA_Node {
+	ID				id
+	BOOL			accepting
+	PTR				prev
+	PTR				next
+	PTR				dfaNode
+	TRANS_ARRAY		transitions[CHAR_RANGE]
+	SYMBOLS_ARRAY	symbols
+}
+
+#layout x_NFA {
+	X_VECTOR	_nodes
+	BOOL		_mergeData[MAX_NODES][CHAR_RANGE]
+
+}

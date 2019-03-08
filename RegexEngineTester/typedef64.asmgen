@@ -1,0 +1,15 @@
+#def PTR 8
+#def BOOL 1
+#def CHAR 1
+#def UCHAR 1
+#def INT 4
+#def UINT 4
+#def INT8 1
+#def UINT8 1
+#def INT16 2
+#def UINT16 2
+#def INT32 4
+#def UINT32 4
+#def INT64 8
+#def UINT64 8
+#def SIZE_T 8

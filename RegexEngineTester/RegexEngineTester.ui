@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegexEngineTesterClass</class>
+ <widget class="QMainWindow" name="RegexEngineTesterClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>675</width>
+    <height>832</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RegexEngineTester</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background-color: #3A3A3A;
+	color: #BBBBBB;
+}
+QGroupBox {	
+	border: 1px solid #505050;
+}
+QLabel {
+	color: #BBBBBB;
+}
+QLineEdit { 
+	color: #BEBEBE;
+	background-color: #323232;
+	selection-color: #101010;
+	selection-background-color: #8398ba;
+	border: 1px solid #505050;
+}
+QTextEdit { 
+	color: #BEBEBE;
+	background-color: #323232;
+	selection-color: #101010;
+	selection-background-color: #8398ba;
+	border: 1px solid #505050;
+}
+QPushButton {
+	background-color: #424242;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QFrame" name="frame_main">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>5</y>
+      <width>662</width>
+      <height>766</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QGroupBox" name="groupBox_regexEngineChoice">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>0</y>
+       <width>651</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>regex engine:</string>
+     </property>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>15</y>
+        <width>641</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_groupBox_regexEngineChoice">
+       <item>
+        <widget class="QRadioButton" name="radioButton_xRegex">
+         <property name="text">
+          <string>x::regex</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_stdRegex">
+         <property name="text">
+          <string>std::regex</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_QRegularExpression">
+         <property name="text">
+          <string>QRegularExpression</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_BoostRegex">
+         <property name="text">
+          <string>Boost.Regex</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_regex">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>regex:</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_input">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>641</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="lineWrapMode">
+      <enum>QTextEdit::NoWrap</enum>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;aab&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;abbbb&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;bbabaabba&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;acbbcbabbccba&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_input">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>input:</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_results">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>484</y>
+       <width>641</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_search">
+     <property name="geometry">
+      <rect>
+       <x>575</x>
+       <y>680</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Search</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_saveState">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>650</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>save state</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_save">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>675</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_iterations">
+     <property name="geometry">
+      <rect>
+       <x>415</x>
+       <y>690</y>
+       <width>75</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>iterations:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_load">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>705</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Load</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_match">
+     <property name="geometry">
+      <rect>
+       <x>575</x>
+       <y>650</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Match</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_iterations">
+     <property name="geometry">
+      <rect>
+       <x>495</x>
+       <y>680</y>
+       <width>75</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_highlight">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>650</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>highlight</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_random">
+     <property name="geometry">
+      <rect>
+       <x>575</x>
+       <y>710</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Random</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_symbols">
+     <property name="geometry">
+      <rect>
+       <x>415</x>
+       <y>710</y>
+       <width>75</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>abc</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_lengthRange">
+     <property name="geometry">
+      <rect>
+       <x>495</x>
+       <y>710</y>
+       <width>75</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>1000 1-5</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_test">
+     <property name="geometry">
+      <rect>
+       <x>575</x>
+       <y>740</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Test</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_modeChoice">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>45</y>
+       <width>651</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>mode:</string>
+     </property>
+     <widget class="QWidget" name="layoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>15</y>
+        <width>641</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_groupBox_modeChoice">
+       <item>
+        <widget class="QRadioButton" name="radioButton_standardTest">
+         <property name="text">
+          <string>standard test</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_automatedTest">
+         <property name="text">
+          <string>automated validity test</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_regex">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>640</width>
+       <height>55</height>
+      </rect>
+     </property>
+     <property name="lineWrapMode">
+      <enum>QTextEdit::NoWrap</enum>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_regexLineWrap">
+     <property name="geometry">
+      <rect>
+       <x>55</x>
+       <y>90</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>line wrap</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_inputLineWrap">
+     <property name="geometry">
+      <rect>
+       <x>55</x>
+       <y>170</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>line wrap</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>675</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="RegexEngineTester.qrc"/>
+ </resources>
+ <connections/>
+</ui>
